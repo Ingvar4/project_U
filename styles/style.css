@@ -64,7 +64,7 @@ a {
   clear: both;
   margin: 90px auto 20px;
   width: 100%;
-  max-width: 1170px;
+  /* max-width: 1170px; */
   text-align: center;
 }
 
@@ -563,7 +563,7 @@ a {
 .ribbon {
 	color: #fff;
 	display: block;
-	font-size: 0.7em;
+	font-size: 0.6em;
 	position: absolute;
 	top: 11px;
 	right: 1px;
@@ -593,8 +593,6 @@ a {
       border-bottom: 20px solid #c0392b;
     }
   }
-  
-    
 }
 
 .ribbon::before,
