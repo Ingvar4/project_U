@@ -35,3 +35,10 @@ main {
   text-decoration: none;
   color: #4CAF50;
 }
+
+#chapter-content {
+  white-space: pre-wrap; /* Для переноса строк */
+  font-family: 'Georgia', serif; /* Красивый шрифт для текста книги */
+  font-size: 18px; /* Размер текста */
+  line-height: 1.6; /* Межстрочный интервал для читаемости */
+}
