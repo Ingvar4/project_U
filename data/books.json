@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Книга первая",
+    "author": "Автор 1",
+    "description": "Описание книги первой.",
+    "cover": "cover1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Книга вторая",
+    "author": "Автор 2",
+    "description": "Описание книги второй.",
+    "cover": "cover2.jpg"
+  }
+]
