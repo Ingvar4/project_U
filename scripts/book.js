@@ -33,11 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Ошибка загрузки книги:', error));
 });
 
-const rawText = `
-Первая строка текста.
-"Цитата," - сказал герой.
-Это новая строка.
-`;
-
-const escapedText = JSON.stringify(rawText);
-console.log(escapedText); // Текст уже готов для вставки в JSON
