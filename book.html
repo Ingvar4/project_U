@@ -7,60 +7,40 @@
     <title>Мир Полудня</title>
     <link rel="stylesheet" href="styles/book.css">
     <script src="scripts/book.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
   </head>
   <body>
-
+    <!-- Прогресс-бар -->
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <p id="progress-text">0%</p>
+    <!-- Оболочка книги и рендер pdf -->
     <div id="wrapper">
       <div id="container">
-  
         <section class="open-book">
-          <header>
-            <h1>Book Layout</h1>
-            <h6>Erin E. Sullivan</h6>
-          </header>
+          <header></header>
           <article>
-
-            
-                  
-
-
-
-
-            <header>
-              <h1 id="book-title"></h1>
-              <p id="book-author"></p>
-            </header>
-              
-            <main>
-              <nav id="chapter-list"></nav>
-              
-              <section id="chapter-content"></section>    
-            </main>
-                  
+            <!-- Контейнер для рендера PDF -->
+            <div id="pdf-container">
+              <div class="page">
+                <canvas id="left-page"></canvas>
+              </div>
+              <div class="page">
+                <canvas id="right-page"></canvas>
+              </div>
+            </div>
           </article>
-          <footer>
-            <ol id="page-numbers">
-              <li>1</li>
-              <li>2</li>
-            </ol>
-          </footer>
         </section>
-  
+        <!-- Элементы управления -->
+        <div id="controls">
+          <button id="prev-page" class="btn">Предыдущая</button>
+          <span id="page-info">Страница <span id="current-page">1</span> из <span id="total-pages">0</span></span>
+          <button id="next-page" class="btn">Следующая</button>
+          <input type="number" id="jump-to-page" placeholder="Перейти на страницу" />
+        </div>
       </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
+    </div>
   </body>
-  </html>
+</html>
