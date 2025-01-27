@@ -25,8 +25,24 @@ let pdfDoc = null,
   totalPages = 0,
   isRendering = false;
 
-// const scale = 1.5;
-const scale = 1.35;
+// Настройка отображения размера листа pdf на экране
+// const scale = 1.35;
+
+// Function to determine scale based on screen width
+function getScale() {
+  if (window.innerWidth <= 480) {
+      return 0.8; // For small screens (mobile)
+  } else if (window.innerWidth <= 768) {
+      return 1.1; // For tablets
+  } else if (window.innerWidth <= 820) {
+      return 1.25; // For tablets
+  } else if (window.innerWidth <= 1920) {
+      return 1.1; 
+  } else {
+      return 1.35; // For desktops
+  }
+}
+
 const leftCanvas = document.getElementById('left-page');
 const rightCanvas = document.getElementById('right-page');
 const leftCtx = leftCanvas.getContext('2d');
@@ -53,6 +69,7 @@ function updateProgress() {
  * @param {CanvasRenderingContext2D} context - The context of the canvas.
  */
 function renderPage(pageNumber, canvas, context) {
+  const scale = getScale(); // Dynamically determine the scale
   return pdfDoc.getPage(pageNumber).then((page) => {
     const viewport = page.getViewport({ scale });
     canvas.height = viewport.height;
@@ -75,7 +92,7 @@ function renderBook() {
   isRendering = true;
 
   const leftPage = currentPage; // Left page is always the current page
-  const rightPage = window.innerWidth <= 768 ? null : currentPage + 1; // Right page is only shown for larger screens
+  const rightPage = window.innerWidth <= 820 ? null : currentPage + 1; // Right page is only shown for larger screens
 
   renderPage(leftPage, leftCanvas, leftCtx).then(() => {
     if (rightPage && rightPage <= totalPages) {
@@ -95,26 +112,26 @@ function renderBook() {
 const bookContainer = document.getElementById('pdf-container');
 
 function flipPage(direction) {
-  const leftPageWrapper = leftCanvas.parentElement;
-  const rightPageWrapper = rightCanvas.parentElement;
+    const leftPageWrapper = leftCanvas.parentElement;
+    const rightPageWrapper = rightCanvas.parentElement;
 
-  if (direction === 'next') {
-    leftPageWrapper.classList.add('flip-forward');
-    rightPageWrapper.classList.add('flip-forward');
+    if (direction === 'next') {
+        leftPageWrapper.classList.add('flip-forward');
+        rightPageWrapper.classList.add('flip-forward');
 
-    setTimeout(() => {
-      leftPageWrapper.classList.remove('flip-forward');
-      rightPageWrapper.classList.remove('flip-forward');
-    }, 600);
-  } else if (direction === 'prev') {
-      leftPageWrapper.classList.add('flip-backward');
-      rightPageWrapper.classList.add('flip-backward');
+        setTimeout(() => {
+            leftPageWrapper.classList.remove('flip-forward');
+            rightPageWrapper.classList.remove('flip-forward');
+        }, 600);
+    } else if (direction === 'prev') {
+        leftPageWrapper.classList.add('flip-backward');
+        rightPageWrapper.classList.add('flip-backward');
 
-      setTimeout(() => {
-        leftPageWrapper.classList.remove('flip-backward');
-        rightPageWrapper.classList.remove('flip-backward');
-      }, 600);
-  }
+        setTimeout(() => {
+            leftPageWrapper.classList.remove('flip-backward');
+            rightPageWrapper.classList.remove('flip-backward');
+        }, 600);
+    }
 }
 
 // Load the PDF document
@@ -152,4 +169,9 @@ document.getElementById('jump-to-page').addEventListener('change', (e) => {
   } else {
       alert('Invalid page number');
   }
+});
+
+// Re-render book on window resize to apply new scale
+window.addEventListener('resize', () => {
+  renderBook();
 });

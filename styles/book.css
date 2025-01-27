@@ -30,7 +30,7 @@ body {
   background: #fff;
   box-shadow: rgba(0,0,0,0.5) 0 1em 3em;
   color: #000;
-  padding: 2em;
+  padding: 2em 2em 0em 2em;
 }
 
 .open-book * {
@@ -79,7 +79,7 @@ canvas {
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 5px 5px;
   margin: 0 10px;
   border: none;
   background-color: #5a5c5a;
@@ -164,8 +164,51 @@ canvas {
 } */
 
 /*** MEDIA QUERIES ***/
-@media only screen and ( min-width: 50em ) {
+@media (max-width: 1920px) {
+  #wrapper {
+    max-width: 95em;
+  }
+}
+
+@media (max-width: 768px) {
   .open-book {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #right-page {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  #controls {
+    margin: 10px 0px;
+  }
+}
+
+@media (max-width: 820px) {
+  .open-book {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #right-page {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .open-book:after {
+    display: hidden;
+  }  
+}
+
+@media only screen and ( min-width: 60em ) {
+  .open-book {
+    padding: 2em 2em 0em 2em;
     margin: 1em;
     position: relative;
   }
