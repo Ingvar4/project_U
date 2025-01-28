@@ -36,6 +36,8 @@ function getScale() {
       return 1.1; // For tablets
   } else if (window.innerWidth <= 820) {
       return 1.25; // For tablets
+  } else if (window.innerWidth <= 1024) {
+      return 1.5; // For tablets
   } else if (window.innerWidth <= 1920) {
       return 1.1; 
   } else {
@@ -92,7 +94,7 @@ function renderBook() {
   isRendering = true;
 
   const leftPage = currentPage; // Left page is always the current page
-  const rightPage = window.innerWidth <= 820 ? null : currentPage + 1; // Right page is only shown for larger screens
+  const rightPage = window.innerWidth <= 1024 ? null : currentPage + 1; // Right page is only shown for larger screens
 
   renderPage(leftPage, leftCanvas, leftCtx).then(() => {
     if (rightPage && rightPage <= totalPages) {
@@ -174,4 +176,45 @@ document.getElementById('jump-to-page').addEventListener('change', (e) => {
 // Re-render book on window resize to apply new scale
 window.addEventListener('resize', () => {
   renderBook();
+});
+
+
+// Key and mouse navigation
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight' || event.key === ' ') { // Next page
+    event.preventDefault(); // Prevent scrolling
+    if (currentPage < totalPages) {
+      currentPage += window.innerWidth <= 768 ? 1 : 2;
+      flipPage('next');
+      renderBook();
+    }
+  } else if (event.key === 'ArrowLeft') { // Previous page
+    event.preventDefault(); // Prevent scrolling
+    if (currentPage > 1) {
+      currentPage -= window.innerWidth <= 768 ? 1 : 2;
+      flipPage('prev');
+      renderBook();
+    }
+  }
+});
+
+// Mouse click navigation
+bookContainer.addEventListener('click', (event) => {
+  const rect = bookContainer.getBoundingClientRect();
+  const clickX = event.clientX - rect.left;
+  const containerCenter = rect.width / 2;
+
+  if (clickX < containerCenter) { // Click on left side
+    if (currentPage > 1) {
+      currentPage -= window.innerWidth <= 768 ? 1 : 2;
+      flipPage('prev');
+      renderBook();
+    }
+  } else { // Click on right side
+    if (currentPage < totalPages) {
+      currentPage += window.innerWidth <= 768 ? 1 : 2;
+      flipPage('next');
+      renderBook();
+    }
+  }
 });
