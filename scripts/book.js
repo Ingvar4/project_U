@@ -218,3 +218,19 @@ bookContainer.addEventListener('click', (event) => {
     }
   }
 });
+
+
+// Download button functionality
+// Находим уже существующую кнопку на странице
+const downloadButton = document.querySelector('.btn.downloadPDF');
+
+// Обрабатываем клик по кнопке
+downloadButton.addEventListener('click', () => {
+  // Create a hidden anchor element
+  const link = document.createElement('a');
+  link.href = pdfUrl; // Путь к текущему PDF
+  link.download = pdfUrl.split('/').pop(); // Название файла для загрузки
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
