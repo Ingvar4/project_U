@@ -26,18 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Показываем попап
       popup.classList.add("show");
+      document.body.classList.add("no-scroll"); // Блокируем скролл
     });
   });
 
   // Закрытие попапа
   closeBtn.addEventListener("click", () => {
     popup.classList.remove("show");
+    document.body.classList.remove("no-scroll"); // Возвращаем скролл
   });
 
   // Закрытие при клике вне попапа
   popup.addEventListener("click", (event) => {
     if (event.target === popup) {
       popup.classList.remove("show");
+      document.body.classList.remove("no-scroll"); // Возвращаем скролл
     }
   });
 });

@@ -89,6 +89,10 @@ a {
   }
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .btn {
   display: table;
   text-transform: uppercase;
