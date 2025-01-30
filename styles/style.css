@@ -101,6 +101,33 @@ a {
 	text-decoration: none;
 }
 
+.about-authors {
+	display: flex;
+}
+
+.authors-img {
+	max-width: calc(var(--index) *16);
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 0rem 1rem 0rem 1rem;
+  text-align: center;
+}
+
+.footerIMG {
+	flex: 2;
+	max-width: calc(var(--index) *16);
+}
+
+.footer-text {
+	
+	flex: 1;
+}
 
 .popup {
   position: fixed;
@@ -809,13 +836,6 @@ figcaption p {
   background: grey;
   color: black;
   border-radius: 0px;
-}
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
 }
 
 @media screen and (max-width: 37.8125em) {
