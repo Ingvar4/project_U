@@ -3,54 +3,70 @@
   <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="images/fav.webp" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Мир Полудня</title>
     <link rel="stylesheet" href="styles/book.css">
     <link rel="stylesheet" href="./font-awsome/css/font-awesome.min.css">
-    <script src="scripts/book.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+    <!-- <script src="scripts/book.js"></script> -->
   </head>
   <body>
-    <!-- Прогресс-бар -->
-    <div id="progress-container">
-      <div id="progress-bar"></div>
-    </div>
-    <p id="progress-text">0%</p>
-    <!-- Оболочка книги и рендер pdf -->
-    <div id="wrapper">
-      <div id="container">
-        <section class="open-book">
-          <header></header>
-          <article>
-            <!-- Контейнер для рендера PDF -->
-            <div id="pdf-container">
-              <div class="page">
-                <canvas id="left-page"></canvas>
-              </div>
-              <div class="page">
-                <canvas id="right-page"></canvas>
-              </div>
-            </div>
-          </article>
-        </section>
-        <!-- Элементы управления -->
-        <div id="controls">
-          <!-- Кнопка на главную -->
-          <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
-          <!-- Кнопка листать влево -->
-          <button id="prev-page" class="btn"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
-          <!-- Нумерация страницы -->
-          <span id="page-info">Страница <span id="current-page">1</span> из <span id="total-pages">0</span></span>
-          <!-- Кнопка листать вправо -->
-          <button id="next-page" class="btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          </button>
-          <!-- Переход на страницу -->
-          <input type="number" id="jump-to-page" placeholder="Перейти на страницу"/>
-          <!-- Кнопка скачивания -->
-          <button class="btn downloadPDF"><i class="fa fa-download" aria-hidden="true"></i></button>
-        </div>
+    <input type="file" id="file-input" hidden>
+
+    <div id="drop-target" class="filter">
+      <div>
+        <svg class="icon empty-state-icon" width="72" height="72" aria-hidden="true">
+          <path d="M36 18s-6-6-12-6-15 6-15 6v42s9-6 15-6 12 6 12 6c4-4 8-6 12-6s12 2 15 6V18c-6-4-12-6-15-6-4 0-8 2-12 6m0 0v42"/>
+          </svg>
+        <h1>Drop a book here!</h1>
+        <p>Or <button id="file-button">choose a file</button> to open it.</p>
       </div>
     </div>
+    
+    <div id="dimming-overlay" aria-hidden="true"></div>
+
+    <div id="side-bar">
+      <div id="side-bar-header">
+        <img id="side-bar-cover">
+        <div>
+          <h1 id="side-bar-title"></h1>
+          <p id="side-bar-author"></p>
+        </div>
+      </div>
+      <div id="toc-view"></div>
+    </div>
+
+    <div id="header-bar" class="toolbar">
+      <button id="side-bar-button" aria-label="Show sidebar">
+        <svg class="icon" width="24" height="24" aria-hidden="true">
+          <path d="M 4 6 h 16 M 4 12 h 16 M 4 18 h 16"/>
+        </svg>
+      </button>
+      <div id="menu-button" class="menu-container">
+        <button aria-label="Show settings" aria-haspopup="true">
+          <svg class="icon" width="24" height="24" aria-hidden="true">
+            <path d="M5 12.7a7 7 0 0 1 0-1.4l-1.8-2 2-3.5 2.7.5a7 7 0 0 1 1.2-.7L10 3h4l.9 2.6 1.2.7 2.7-.5 2 3.4-1.8 2a7 7 0 0 1 0 1.5l1.8 2-2 3.5-2.7-.5a7 7 0 0 1-1.2.7L14 21h-4l-.9-2.6a7 7 0 0 1-1.2-.7l-2.7.5-2-3.4 1.8-2Z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="nav-bar" class="toolbar">
+      <button id="left-button" aria-label="Go left">
+        <svg class="icon" width="24" height="24" aria-hidden="true">
+          <path d="M 15 6 L 9 12 L 15 18"/>
+        </svg>
+      </button>
+      <input id="progress-slider" type="range" min="0" max="1" step="any" list="tick-marks">
+      <datalist id="tick-marks"></datalist>
+      <button id="right-button" aria-label="Go right">
+        <svg class="icon" width="24" height="24" aria-hidden="true">
+          <path d="M 9 6 L 15 12 L 9 18"/>
+        </svg>
+      </button>
+    </div>
+
+    <script src="foliate-js/reader.js" type="module" defer></script>
   </body>
 </html>
