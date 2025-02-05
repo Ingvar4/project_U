@@ -86,17 +86,20 @@ a {
 }
 
 .about-authors {
-	/* display: flex; */
+	display: flex;
+	flex-direction: column;
 	/* width: 85%; */
 	/* padding: 20px; */
-	/* align-items: center; */
+	align-items: center;
 	/* justify-content: center; */
 	
 	/* max-width: 800px; */
 }
 
 .authors-text {
-	font-family: monospace;
+	
+	/* font-family: monospace; */
+	/* color: black; */
 	font-size: calc(var(--index) * 0.9);
 }
 
