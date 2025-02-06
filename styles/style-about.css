@@ -92,9 +92,10 @@ header {
 
   .glavnoe {
     margin: 0 auto;
+    padding-right: 10px;
     position: absolute;
     top: 10%;
-    left: 19%;
+    left: 16%;
     transform: translate(-10%, -0%);
     font-size: 1em;
   }
