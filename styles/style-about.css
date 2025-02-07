@@ -92,16 +92,17 @@ header {
 
   .glavnoe {
     margin: 0 auto;
-    padding-right: 10px;
+    /* padding-right: 10px; */
     position: absolute;
     top: 10%;
-    left: 16%;
+    left: 15%;
     transform: translate(-10%, -0%);
     font-size: 1em;
   }
 
   .aboutIMG {
-    max-width: 340px;
+    max-width: 99%;
+    /* max-width: 340px; */
   }
 }
 
@@ -178,6 +179,33 @@ header {
     top: 10%;
     left: 21%;
     transform: translate(-10%, -0%);
+    font-size: 1em;
+  }
+
+  .aboutIMG {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1280px) {
+	header a {
+		font-size: calc(var(--index) * 1.2);
+	}
+
+	.logo {
+		flex: 1;
+	}
+	
+	.nav {
+		padding: 10px;
+	}
+
+  .glavnoe {
+    margin: 0 auto;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(-40%, -0%);
     font-size: 1em;
   }
 
