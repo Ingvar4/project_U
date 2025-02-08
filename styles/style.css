@@ -89,8 +89,8 @@ a {
 
 .about-authors {
 	position: relative; 
-  height: 100vh;
-  /* width: 100%; */
+  height: 92vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +98,6 @@ a {
 }
 
 .about-authors::before {
-	/* content: ""; */
 	background: url("../images/1large.jpg") no-repeat;
 	background-repeat: no-repeat;
   background-size: cover;
@@ -115,12 +114,17 @@ a {
 	position: relative;
 	font-size: calc(var(--index) * 1);
 	color: black;
-  
-  /* right: 50px; */
 	width: 90%;
 	text-align:justify;
 	font-family: 'Garamond';
 	font-weight: 500;
+}
+
+.authors-text2 {
+	font-size: calc(var(--index) * 1);
+	font-family: 'Garamond';
+	font-weight: 700;
+	text-align: center;
 }
 
 .footer {
@@ -149,7 +153,7 @@ a {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  display: none; /* Скрываем изначально */
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -166,7 +170,6 @@ a {
 	text-align: start;
 }
 
-/* Крестик для закрытия */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -222,7 +225,6 @@ a {
 	margin-top: 10px;
 	margin-left: 49px;
   font-size: 0.7em;
-  /* font-weight: 700; */
   padding: 0.2em 0.4em;
   text-align: center;
 	background-color: #eee;
@@ -891,7 +893,6 @@ figcaption p {
 
 	.authors-text {
 		font-size: calc(var(--index) * 2);
-		/* margin-top: -400px; */
 		top: -100px;
 	}
 }
