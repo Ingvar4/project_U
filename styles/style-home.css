@@ -16,16 +16,9 @@ body {
 }
 
 header {
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
   display: flex;
 	justify-content: center;
-  /* justify-content: flex-start; */
   align-items: center;
-  /* padding: 30px 100px; */
-  /* z-index: 10; */
 }
 
 .logo {
@@ -37,16 +30,11 @@ header {
   letter-spacing: 1px;
 	margin-left: 5px;
   text-decoration: none;
-  /* font-weight: 800; */
 }
 
 .nav {
   display: flex;
-	/* justify-content: center; */
-	/* align-items: center; */
-	/* align-content: center; */
 	flex: 3;
-	/* margin-left: 30%; */
 	font-size: calc(var(--index) * 0.6);
 }
 

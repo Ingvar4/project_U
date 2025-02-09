@@ -12,7 +12,6 @@
 
 body {
   background: #000000;
-  /* background: url("../images/home.jpg") no-repeat; */
 }
 
 header {
@@ -92,7 +91,6 @@ header {
 
   .glavnoe {
     margin: 0 auto;
-    /* padding-right: 10px; */
     position: absolute;
     top: 10%;
     left: 15%;
@@ -102,7 +100,6 @@ header {
 
   .aboutIMG {
     max-width: 99%;
-    /* max-width: 340px; */
   }
 }
 
