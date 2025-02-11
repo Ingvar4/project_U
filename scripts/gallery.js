@@ -1,14 +1,31 @@
-// Ждем, пока DOM загрузится полностью
-document.addEventListener('DOMContentLoaded', () => {
-  // Выбираем все элементы-заголовки книг
-  const headers = document.querySelectorAll('.book-header');
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      // При клике на заголовок ищем ближайший контейнер .book и его галерею
-      const bookContainer = header.parentElement;
-      const gallery = bookContainer.querySelector('.gallery');
-      // Переключаем класс active для показа/скрытия галереи
-      gallery.classList.toggle('active');
-    });
-  });
+
+$(document).ready(function() {
+	$('.zoom-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		closeOnContentClick: false,
+		closeBtnInside: false,
+		mainClass: 'mfp-with-zoom mfp-img-mobile',
+
+		// If you enable allowHTMLInTemplate - 
+		// make sure your HTML attributes are sanitized if they can be created by a non-admin user
+		allowHTMLInTemplate: true,
+		image: {
+			verticalFit: true,
+			titleSrc: function(item) {
+				return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+			}
+		},
+
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300, // don't foget to change the duration also in CSS
+			opener: function(element) {
+				return element.find('img');
+			}
+		}
+	});
 });
