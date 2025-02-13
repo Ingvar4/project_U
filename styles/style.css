@@ -98,7 +98,8 @@ a {
 }
 
 .about-authors::before {
-	background: url("../images/1large.jpg") no-repeat;
+	/* background: url("../images/1large.jpg") no-repeat; */
+	background: url("../images/8.jpg") no-repeat;
 	background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -217,11 +218,11 @@ a {
   display: table;
   text-transform: uppercase;
   border: 2px solid #2c3e50;
-  margin-top: 80px;
+  margin-top: 65px;
 	margin-left: 50px;
   font-size: 0.7em;
   font-weight: 700;
-  padding: 0.1em 0.6em;
+  padding: 0.5em 0.6em;
   text-align: center;
   -webkit-transition: color 0.3s, border-color 0.3s;
   -moz-transition: color 0.3s, border-color 0.3s;
@@ -240,12 +241,16 @@ a {
 	margin-top: 10px;
 	margin-left: 49px;
   font-size: 0.7em;
-  padding: 0.2em 0.4em;
+  padding: 0.5em 0.38em;
   text-align: center;
-	background-color: #eee;
+	color: #2c3e50;
+	background-color: #e1ddd800;
   -webkit-transition: color 0.3s, border-color 0.3s;
   -moz-transition: color 0.3s, border-color 0.3s;
 	transition: color 0.3s, border-color 0.3s;
+	font-family: 'Poppins';
+	font-weight: 600;
+	line-height: 1.2;
 }
 
 .details-btn:hover {
