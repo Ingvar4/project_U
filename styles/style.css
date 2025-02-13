@@ -133,7 +133,7 @@ a {
 	align-items: center;
   background-color: #333;
   color: #fff;
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0rem 1rem 2rem 1rem;
   text-align: center;
 }
 
@@ -143,7 +143,22 @@ a {
 }
 
 .footer-text {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-weight: 100;
 	flex: 1;
+	color: rgba(128, 128, 128, 0.53);
+	line-height: 1.5;
+}
+
+.footer-text a {
+	color: rgba(128, 128, 128, 0.53);
+}
+
+.footer-text2 {
+	position: absolute;
+	margin-top: 250px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: rgba(128, 128, 128, 0.53);
 }
 
 .popup {
@@ -853,6 +868,8 @@ figcaption p {
   border-radius: 0px;
 }
 
+/* МЕДИА ЗАПРОСЫ */
+
 @media screen and (max-width: 760px) {
 	.align > li {
 		width: 49%;
@@ -895,6 +912,32 @@ figcaption p {
 		font-size: calc(var(--index) * 2);
 		top: -100px;
 	}
+
+	.footer {
+		padding: 1rem 1rem 4rem 1rem;
+	}
+
+	.footer-text {
+		font-size: calc(var(--index) * 1.1);
+	}
+
+	.footer-text2 {
+		margin-top: 160px;
+	}
+}
+
+@media (min-width: 760px) {
+	.footer {
+		padding: 1rem 1rem 3rem 1rem;
+	}
+
+	.footer-text {
+		font-size: calc(var(--index) * 1.1);
+	}
+
+	.footer-text2 {
+		margin-top: 180px;
+	}
 }
 
 @media (min-width: 768px) {
@@ -935,6 +978,18 @@ figcaption p {
 		font-size: calc(var(--index) * 2);
 		top: -200px;
 	}
+
+	.footer {
+		padding: 0rem 1rem 3rem 1rem;
+	}
+
+	.footer-text {
+		font-size: calc(var(--index) * 0.8);
+	}
+
+	.footer-text2 {
+		margin-top: 150px;
+	}
 }
 
 @media (min-width: 820px) {
@@ -973,7 +1028,7 @@ figcaption p {
 
 	.authors-text {
 		font-size: calc(var(--index) * 2);
-		top: -190px;
+		top: -90px;
 	}
 }
 
@@ -1013,7 +1068,15 @@ figcaption p {
 
 	.authors-text {
 		font-size: calc(var(--index) * 2);
-		top: -290px;
+		top: -190px;
+	}
+
+	.footer {
+		padding: 0rem 1rem 3rem 1rem;
+	}
+
+	.footer-text2 {
+		margin-top: 180px;
 	}
 }
 
@@ -1063,11 +1126,28 @@ figcaption p {
 		top: -370px;
 		font-size: calc(var(--index) * 1.5);
 	}
+
+	.footer-text2 {
+		margin-top: 210px;
+	}
 }
 
 @media (min-width: 2560px) {
   .authors-text {
 		top: -470px;
 		font-size: calc(var(--index) * 1);
+	}
+
+	.footer {
+		padding: 0rem 1rem 2rem 1rem;
+	}
+
+	.footer-text {
+		font-size: calc(var(--index) * 0.6);
+	}
+
+	.footer-text2 {
+		margin-top: 250px;
+		font-size: calc(var(--index) * 0.5);
 	}
 }
