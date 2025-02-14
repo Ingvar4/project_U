@@ -165,7 +165,27 @@ header {
   transform: scale(1.05);
 }
 
+.ui-visual-focus {
+	box-shadow: 0 0 3px 1px rgb(21, 21, 21);
+}
 
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	border: 1px solid #767981;
+	background: #aeb5bc;
+	font-weight: normal;
+	color: #ffffff;
+  border-radius: 5px 5px 0px 0px;
+}
+.ui-icon-background,
+.ui-state-active .ui-icon-background {
+	border: #686a72;
+	background-color: #ffffff;
+}
 
 /* МЕДИА ЗАПРОСЫ */
 
