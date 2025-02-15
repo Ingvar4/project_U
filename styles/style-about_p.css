@@ -66,8 +66,9 @@ header {
   text-align:justify;
 	font-size: calc(var(--index) * 1);
 	color: black;
-	font-family: 'Garamond';
-	font-weight: 500;
+	font-family: 'EB Garamond';
+  font-style: normal;
+	font-weight: 400;
 }
 
 

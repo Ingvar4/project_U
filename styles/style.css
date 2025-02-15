@@ -114,14 +114,16 @@ a {
 	color: black;
 	width: 90%;
 	text-align:justify;
-	font-family: 'Garamond';
-	font-weight: 500;
+	font-family: 'EB Garamond';
+  font-style: normal;
+	font-weight: 400;
 }
 
 .authors-text2 {
 	font-size: calc(var(--index) * 1);
-	font-family: 'Garamond';
-	font-weight: 700;
+	font-family: 'EB Garamond';
+  font-style: normal;
+	font-weight: 600;
 	text-align: center;
 }
 
