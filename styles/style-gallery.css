@@ -206,6 +206,7 @@ a.ui-button:active,
 	
 	.nav {
 		padding: 10px;
+    justify-content: space-between;
 	}
 }
 
